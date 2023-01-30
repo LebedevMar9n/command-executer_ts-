@@ -1,4 +1,4 @@
-import { IStreamLogger } from './../../handlers/stream-logger.interface';
+import { IStreamLogger } from '../../core/handlers/stream-logger.interface';
 
 export class ConsoleLogger implements IStreamLogger {
     // implenting  SingleTone pattern(one instance)
