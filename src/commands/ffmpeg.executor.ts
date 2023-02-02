@@ -9,17 +9,17 @@ import { StreamHandler } from '../core/handlers/stream-handlers';
 
 export class FfmpegExecutor extends CommandExecutor<IFfmpegInput>{
     private fileService: FileService = new FileService();
-    private pronptService: PromptService = new PromptService();
+    private promptService: PromptService = new PromptService();
 
     constructor(logger: IStreamLogger) {
         super(logger);
     }
 
     protected async prompt(): Promise<IFfmpegInput> {
-        const width = await this.pronptService.input<number>('Enter width', 'number');
-        const height = await this.pronptService.input<number>('Enter height', 'number');
-        const path = await this.pronptService.input<string>('Enter file path', 'input');
-        const name = await this.pronptService.input<string>('Enter file heigth', 'input');
+        const width = await this.promptService.input<number>('Enter width', 'number');
+        const height = await this.promptService.input<number>('Enter height', 'number');
+        const path = await this.promptService.input<string>('Enter file path', 'input');
+        const name = await this.promptService.input<string>('Enter file name', 'input');
         return { width, height, path, name };
     }
     protected build({ width, height, path, name }: IFfmpegInput): ICommandExecFfmpeg {
